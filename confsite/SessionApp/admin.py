@@ -1,7 +1,4 @@
 from django.contrib import admin
-from .models import *
-
-@admin.register(Session)
-class sessionAdmin(admin.ModelAdmin):
-    pass
+from .models import Session 
 # Register your models here.
+admin.site.register(Session)
