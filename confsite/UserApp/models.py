@@ -26,7 +26,7 @@ class User(AbstractUser):
         ("commitee","organizing commitee member"),
     ]
     role=models.CharField(max_length=255,choices=ROLE,default="participant")
-    affiliation=models.CharField(max_length=255)
+    affiliation=models.CharField(max_length=255, null=True, blank=True)
     email=models.EmailField(unique=True,
                             validators=[verify_email])
     nationality=models.CharField(max_length=255)
