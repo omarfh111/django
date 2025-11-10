@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Mes Soumissions</h2>
+
+<table border="1">
+<tr>
+  <th>Titre</th>
+  <th>Statut</th>
+  <th>Conférence</th>
+  <th>Date</th>
+  <th>Payé ?</th>
+  <th></th>
+</tr>
+
+{% for s in submissions %}
+<tr>
+  <td>{{ s.title }}</td>
+  <td>{{ s.status }}</td>
+  <td>{{ s.conference.name }}</td>
+  <td>{{ s.submission_date }}</td>
+  <td>{{ s.payed }}</td>
+  <td><a href="{% url 'detail_submission' s.pk %}">Détails</a></td>
+</tr>
+{% endfor %}
+</table>
+
+<a href="{% url 'add_submission' %}">➕ Nouvelle Soumission</a>
+{% endblock %}

@@ -8,6 +8,8 @@
             <a href="{% url 'liste_conferences'%}">conference</a>
             <a>Contact</a>
             {% if user.is_authenticated %}
+            <a href="{% url 'list_submissions' %}">Mes soumissions</a>
+            <a href="{% url 'add_submission' %}">Ajouter une soumission</a>
             <a> {{user.username}}</a>
             <a href="{% url 'logout' %}"> Logout</a>
             {% else %}
