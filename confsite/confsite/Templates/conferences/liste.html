@@ -13,8 +13,11 @@
         <td>{{c.theme}}</td>
         <td>{{c.start_date}} - {{c.end_date}}</td>
         <td><a href="{% url 'conference_details' c.pk %}">Détails</a>
-        <a href="{% url 'conference_update' c.pk %}">update</a>
-        <a href="{% url 'conference_delete' c.pk %}">delete</a></td>
+
+        {% if user.is_authenticated  and user.role == "commitee" %}
+        <a href="{% url 'conference_update' c.pk %}">Update</a>
+        <a href="{% url 'conference_delete' c.pk %}">Supprimer</a></td>
+        {% endif %}
 
     </tr>
     {% endfor %}

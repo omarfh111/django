@@ -7,6 +7,14 @@
             <a>Home</a>
             <a href="{% url 'liste_conferences'%}">conference</a>
             <a>Contact</a>
+            {% if user.is_authenticated %}
+            <a> {{user.username}}</a>
+            <a href="{% url 'logout' %}"> Logout</a>
+            {% else %}
+
+            <a href="{% url 'login' %}">Connexion</a>
+            <a href="{% url 'register' %}">Inscription </a>
+            {% endif %}
         </nav>
         {% block content %}
         
